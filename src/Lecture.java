@@ -15,7 +15,7 @@ public class Lecture {
 	public boolean addStudent(Student s){
 		int spot = this.getEmptySpot();
 		if (spot != -1){
-			students[spot] = s.getId();
+			students[spot] = s.getID();
 			currentEnrollment++;
 			return true;
 		}
@@ -24,7 +24,7 @@ public class Lecture {
 
 	public void removeStudent(Student s){
 		for (int i = 0; i < students.length; i++){
-			if (students[i] == s.getId()){
+			if (students[i] == s.getID()){
 				students[i] = 0;
 				currentEnrollment--;
 			}
