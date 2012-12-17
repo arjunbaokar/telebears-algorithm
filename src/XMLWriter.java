@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.LinkedList;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -19,16 +20,21 @@ public class XMLWriter {
 	}
 	
 	public void writeStudentToXML(Student s) throws IOException{
-		//FIXME need to test this shit
 		String studentXML = xstream.toXML(s);
+		//System.out.println(studentXML);
 		writer.append(studentXML);
 		writer.append('\n');
 	}
 	
-	public void writeClassToXML(Course c) throws IOException{
-		// FIXME test this shit. Not sure if TreeMap works with XStream.
+	public void writeClassToXML(Class c) throws IOException{
 		String classXML = xstream.toXML(c);
 		writer.append(classXML);
 		writer.append('\n');
 	}
+	
+//	public static void main(String[] args) throws IOException{
+//		XMLWriter writer = new XMLWriter(new File("idkrandomshit.xml"));
+//		Student james = new Student(69696969, (float)50.0, new LinkedList<Lecture>());
+//		writer.writeStudentToXML(james);
+//	}
 }

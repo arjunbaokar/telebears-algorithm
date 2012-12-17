@@ -24,6 +24,7 @@ public class Student {
 	}
 	
 	public Lecture getNextClass(){
+		return null;
 		// TODO get the top element of priority queue and remove it
 	}
 	
