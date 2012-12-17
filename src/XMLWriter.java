@@ -21,7 +21,7 @@ public class XMLWriter {
 	
 	public void writeStudentToXML(Student s) throws IOException{
 		String studentXML = xstream.toXML(s);
-		//System.out.println(studentXML);
+		System.out.println(studentXML);
 		writer.append(studentXML);
 		writer.append('\n');
 	}
@@ -32,9 +32,9 @@ public class XMLWriter {
 		writer.append('\n');
 	}
 	
-//	public static void main(String[] args) throws IOException{
-//		XMLWriter writer = new XMLWriter(new File("idkrandomshit.xml"));
-//		Student james = new Student(69696969, (float)50.0, new LinkedList<Lecture>());
-//		writer.writeStudentToXML(james);
-//	}
+	public static void main(String[] args) throws IOException{
+		XMLWriter xmlwriter = new XMLWriter(new File("idkrandomshit.xml"));
+		Student james = new Student(69696969, (float)50.0, new LinkedList<Lecture>());
+		xmlwriter.writeStudentToXML(james);
+	}
 }
