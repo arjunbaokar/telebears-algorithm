@@ -8,11 +8,13 @@ import com.thoughtworks.xstream.XStream;
 public class XMLWriter {
 
 	private XStream xstream = new XStream();
-	private FileWriter writer;
+	private FileWriter outStream;
+	private BufferedWriter writer;
 	
 	public XMLWriter(File xml){
 		try {
-			writer = new FileWriter(xml);
+			outStream = new FileWriter(xml);
+			writer = outStream;
 		} catch (IOException e) {
 			System.err.println("Goddamn it, give me the right filename.");
 			e.printStackTrace();
@@ -22,14 +24,14 @@ public class XMLWriter {
 	public void writeStudentToXML(Student s) throws IOException{
 		String studentXML = xstream.toXML(s);
 		System.out.println(studentXML);
-		writer.append(studentXML);
-		writer.append('\n');
+		writer.write(studentXML);
+		writer.write('\n');
 	}
 	
 	public void writeClassToXML(Class c) throws IOException{
 		String classXML = xstream.toXML(c);
-		writer.append(classXML);
-		writer.append('\n');
+		writer.write(classXML);
+		writer.write('\n');
 	}
 	
 	public static void main(String[] args) throws IOException{
